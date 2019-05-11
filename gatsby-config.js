@@ -2,9 +2,14 @@ var proxy = require('http-proxy-middleware')
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Cast and Burn Gaming',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'An RPG Video Game Podcast!',
+      siteUrl: 'https://castandburngaming.com',
+      author: {
+        name: 'Nicolas Grant',
+        email: 'castandburn@gmail.com',
+      }
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -35,7 +40,6 @@ module.exports = {
       resolve: 'gatsby-plugin-typescript',      
     },
     'gatsby-plugin-typescript-checker',
-    'gatsby-plugin-tslint',
     {
       resolve: 'gatsby-source-anchor',
       options: {
@@ -72,6 +76,14 @@ module.exports = {
         ],
       },
     },
+    // {
+    //   resolve: "gatsby-plugin-react-svg",
+    //   options: {
+    //     rule: {
+    //       include: '${__dirname}/src/img/' // See below to configure properly
+    //     }
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

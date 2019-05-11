@@ -4,6 +4,7 @@
   "version": "1.1.3",
   "author": "Austin Green",
   "dependencies": {
+    "@types/react-helmet": "^5.0.8",
     "bulma": "^0.7.0",
     "gatsby": "^2.4.3",
     "gatsby-image": "^2.0.41",
@@ -11,6 +12,7 @@
     "gatsby-plugin-netlify-cms": "^3.0.18",
     "gatsby-plugin-purgecss": "^3.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-sass": "^2.0.7",
     "gatsby-plugin-sharp": "^2.0.37",
     "gatsby-plugin-typescript": "^2.0.13",
@@ -45,6 +47,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "startDebug": "npm run start:lambda && node --inspect-brk --no-lazy node_modules/gatsby/dist/bin/gatsby develop",
     "clean": "rimraf .cache public",
     "start:app": "npm run develop",
     "start:lambda": "netlify-lambda serve src/lambda",
