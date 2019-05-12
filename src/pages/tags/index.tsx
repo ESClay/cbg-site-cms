@@ -1,20 +1,22 @@
 import React from 'react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql} from 'gatsby'
 import Layout from '../../components/Layout'
 
-const TagsPage = ({
-  data: {
-    allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
-  },
-}) => (
-  <Layout>
+// interface Props {
+//   data: {
+//     allMarkdownRemark: { group },
+//     site: {
+//       siteMetadata: { title : string },
+//     },
+//   },
+// }
+export default ({data}:any) => {
+  
+  return <Layout>
     <section className="section">
-      <Helmet title={`Tags | ${title}`} />
+      <Helmet title={`Tags | ${data.site.siteMetadata.title}`} />
       <div className="container content">
         <div className="columns">
           <div
@@ -23,7 +25,7 @@ const TagsPage = ({
           >
             <h1 className="title is-size-2 is-bold-light">Tags</h1>
             <ul className="taglist">
-              {group.map(tag => (
+              {data.allMarkdownRemark.group.map((tag:any) => (
                 <li key={tag.fieldValue}>
                   <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
                     {tag.fieldValue} ({tag.totalCount})
@@ -36,9 +38,9 @@ const TagsPage = ({
       </div>
     </section>
   </Layout>
-)
+}
 
-export default TagsPage
+//export default TagsPage
 
 export const tagPageQuery = graphql`
   query TagsQuery {
