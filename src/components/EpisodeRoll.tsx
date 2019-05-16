@@ -1,38 +1,53 @@
-import {Link, graphql} from "gatsby";
+import {graphql, StaticQuery, Link} from "gatsby";
 import React from "react";
+//import Episode from "../models/Episode";
+import Data from "../models/Data";
+// import AllEpisodes from "../models/AllEpisodes";
+// import Episode from "../models/Episode";
+//import AudioPlayer from "react-h5-audio-player";
 
-const EpisodeRoll = ({data} : any) => {
+
+
+const EpisodeRoll : React.FunctionComponent<Data> = ({allAnchorEpisode}) => {    
+    //console.info(data);
+    console.info(allAnchorEpisode);
+    console.info(allAnchorEpisode.allAnchorEpisode.edges);
     return (
+        
         <div className="columns is-multiline">
-          {data.allAnchorEpisode &&
-            data.allAnchorEpisode.map(({ node }: any) => (
-              <div className="is-parent column is-6" key={node.id}>
+          {allAnchorEpisode.allAnchorEpisode.edges &&
+            allAnchorEpisode.allAnchorEpisode.edges.map(edge => (
+
+              <div className="is-parent column is-6" key={edge.node.id}>
                 <article
-                  className={`blog-list-item tile is-child box notification ${
-                    node.frontmatter.featuredpost ? 'is-featured' : ''
-                  }`}
+                  className={`blog-list-item tile is-child box notification`}
                 >
+               
                   <header>                    
                     <p className="post-meta">
-                      <Link
-                        className="title has-text-primary is-size-4"
-                        to={node.fields.slug}
-                      >
-                        {node.frontmatter.title}
-                      </Link>
+                    <Link
+                      className="title has-text-primary is-size-4"
+                      to={edge.node.link}
+                    >
+                      {edge.node.title}
+                    </Link>
                       <span> &bull; </span>
                       <span className="subtitle is-size-5 is-block">
-                        {node.frontmatter.date}
+                        {edge.node.pubDate}
                       </span>
                     </p>
                   </header>
                   <p>
-                    {node.excerpt}
+                      <audio controls src={edge.node.enclosure.url} itemType={edge.node.enclosure.type}/>
+                      {/* <AudioPlayer 
+                        src={edge.node.enclosure.url}
+                      /> */}
+                      <br/>
+                      <br/>
+                    <span dangerouslySetInnerHTML={createMarkup(edge.node.content)}/>
                     <br />
                     <br />
-                    <Link className="button" to={node.fields.slug}>
-                      Keep Reading →
-                    </Link>
+                    
                   </p>
                 </article>
               </div>
@@ -41,28 +56,47 @@ const EpisodeRoll = ({data} : any) => {
       )
 }
 
-export default EpisodeRoll;
+export function createMarkup(markup: string){
+    return {__html: markup};
+}
 
-export const episodeData = graphql`
-    query EpisodeQuery {
-        allAnchorEpisode {
-            edges {
-            node {
-                id
-                content
-                link
-                pubDate
-            }
-            }
-            totalCount
+export default () => (
+    <StaticQuery
+        query={
+            graphql`
+                query {
+                    allAnchorEpisode {            
+                        edges {
+                            node {
+                                title
+                                id
+                                content
+                                contentSnippet
+                                link
+                                pubDate
+                                enclosure{
+                                    url
+                                    length
+                                    type
+                                  }                                
+                            }                
+                        }
+                        totalCount
+                        
+                    }
+                    anchorPodcast {
+                        id
+                        image {
+                        link
+                        url
+                        title
+                        }
+                    }
+                }
+            `
         }
-        anchorPodcast {
-            id
-            image {
-            link
-            url
-            title
-            }
-        }
-    }
-`;
+        render={ data => <EpisodeRoll allAnchorEpisode={data}/> }
+    />
+)
+//export default EpisodeRoll;
+

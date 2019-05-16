@@ -1,6 +1,9 @@
 import Layout from "../../components/Layout";
 import React from 'react';
 import EpisodeRoll from "../../components/EpisodeRoll"
+// import { graphql } from "gatsby";
+// import AllEpisodes from "../../models/AllEpisodes";
+// import Data from "../../models/Data";
 //import Helmet from 'react-helmet';
 
 // export class EpisodeList extends React.Component {
@@ -29,7 +32,7 @@ const EpisodeList : React.FunctionComponent = () => {
               padding: '1rem',
             }}
           >
-            Latest Stories
+            Podcast Episodes
           </h1>
         </div>
         <section className="section">
@@ -44,5 +47,7 @@ const EpisodeList : React.FunctionComponent = () => {
 }
 
 export default EpisodeList;
+
+
 
 

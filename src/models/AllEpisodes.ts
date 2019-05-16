@@ -1,6 +1,9 @@
 import Episode from "./Episode";
 
-export default interface AllEpisodes {
-    totalCount : number;
-    edge: { node: Episode }[];
+export default interface AllEpisodes {    
+    allAnchorEpisode: {
+        totalCount : number;
+        edges: { node: Episode }[];
+    }
+    
 }

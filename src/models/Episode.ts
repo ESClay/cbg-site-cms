@@ -1,6 +1,11 @@
+import EpisodeData from "./EpisodeData";
+
 export default interface Episode {
-    id: number;
+    title: string;
+    id: number;   
+    contentSnippet: string;
     content: string;
     link: string;
     pubDate: Date;
+    enclosure: EpisodeData
 }
