@@ -22,27 +22,6 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
-
-      allAnchorEpisode {
-        edges {
-          node {
-            title
-            id
-            content
-            contentSnippet
-            link
-            pubDate
-            fields {
-              slug
-            }
-            enclosure {
-              url
-              length
-              type
-            }
-          }
-        }
-      }
     }
   `).then(result => {
     if (result.errors) {
@@ -59,8 +38,7 @@ exports.createPages = ({ actions, graphql }) => {
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.${"js" ||
-            "tsx"}`
+          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
         context: {
@@ -69,7 +47,7 @@ exports.createPages = ({ actions, graphql }) => {
       });
     });
 
-    const episodes = result.data.allAnchorEpisode.edges;
+   // const episodes = result.data.allAnchorEpisode.edges;
 
     // episodes.forEach(edge => {
     //   const id = edge.node.id
