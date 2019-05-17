@@ -2,7 +2,7 @@
     "parser": "@typescript-eslint/parser",
     "extends": ["eslint-config-blvd/react", "prettier/@typescript-eslint", "prettier/react", "plugin:prettier/recommended"],
     "parserOptions": {
-      "ecmaVersion": 2018,
+      "ecmaVersion": 6,
       "sourceType": "module",
       "ecmaFeatures": {
         "jsx": true

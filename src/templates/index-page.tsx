@@ -6,6 +6,22 @@ import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 
+export interface IndexPageProps {
+image:  {childImageSharp: any} | any;
+title: String;
+heading: String;
+subheading: String;
+mainpitch: {
+  title: string;
+  description: string;
+};
+description: String;
+intro: {
+  blurbs: [{image: any; text: string}];
+}
+
+
+}
 export const IndexPageTemplate = ({
   image,
   title,
@@ -14,7 +30,7 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-}) => (
+}:IndexPageProps) => (
   <div>
     <div
       className="full-width-image margin-top-0"
@@ -114,19 +130,9 @@ export const IndexPageTemplate = ({
   </div>
 )
 
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
-}
 
-const IndexPage = ({ data }) => {
+
+const IndexPage = ({ data }: any) => {
   const { frontmatter } = data.markdownRemark
 
   return (

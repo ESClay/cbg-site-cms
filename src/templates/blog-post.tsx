@@ -13,7 +13,7 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-}) => {
+}: any) => {
   const PostContent = contentComponent || Content
 
   return (
@@ -31,7 +31,7 @@ export const BlogPostTemplate = ({
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
                 <ul className="taglist">
-                  {tags.map(tag => (
+                  {tags.map((tag: any) => (
                     <li key={tag + `tag`}>
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                     </li>
@@ -54,7 +54,7 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data }: any) => {
   const { markdownRemark: post } = data
 
   return (

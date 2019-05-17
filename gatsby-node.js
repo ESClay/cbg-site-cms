@@ -32,13 +32,14 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach(edge => {
-      const id = edge.node.id;
+      const { id } = edge.node;
       console.log(edge);
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(edge.node.frontmatter.templateKey)}.${"js" ||
+            "tsx"}`
         ),
         // additional data can be passed via context
         context: {
@@ -92,7 +93,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (
     node.internal.type === `MarkdownRemark` ||
-    node.internal.type === "AnchorEpisode"
+    node.internal.type === `AnchorEpisode`
   ) {
     const value = createFilePath({ node, getNode });
     createNodeField({
