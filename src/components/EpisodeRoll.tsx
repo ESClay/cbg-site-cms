@@ -1,5 +1,6 @@
 import {graphql, StaticQuery, Link} from "gatsby";
 import React from "react";
+import _ from "lodash";
 //import Episode from "../models/Episode";
 import Data from "../models/Data";
 // import AllEpisodes from "../models/AllEpisodes";
@@ -12,6 +13,7 @@ const EpisodeRoll : React.FunctionComponent<Data> = ({allAnchorEpisode}) => {
     //console.info(data);
     console.info(allAnchorEpisode);
     console.info(allAnchorEpisode.allAnchorEpisode.edges);
+    
     return (
         
         <div className="columns is-multiline">
@@ -27,7 +29,7 @@ const EpisodeRoll : React.FunctionComponent<Data> = ({allAnchorEpisode}) => {
                     <p className="post-meta">
                     <Link
                       className="title has-text-primary is-size-4"
-                      to={edge.node.link}
+                      to={'/episodes/' + _.kebabCase(edge.node.title) }
                     >
                       {edge.node.title}
                     </Link>

@@ -22,6 +22,18 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
+        
+      allAnchorEpisode {          
+        edges {            
+          node {        
+            id
+            title           
+            content
+            link
+            pubDate
+          }
+        }         
+      }
     }
   `).then(result => {
     if (result.errors) {
@@ -47,19 +59,20 @@ exports.createPages = ({ actions, graphql }) => {
       });
     });
 
-   // const episodes = result.data.allAnchorEpisode.edges;
+   const episodes = result.data.allAnchorEpisode.edges;
 
-    // episodes.forEach(edge => {
-    //   const id = edge.node.id
-    //   createPage({
-    //     path: edge.node.fields.slug,
-    //     component: path.resolve('src/templates/episode.tsx'),
-    //     // additional data can be passed via context
-    //     context: {
-    //       id,
-    //     },
-    //   })
-    // })
+    episodes.forEach(edge => {
+      const id = edge.node.id
+
+      createPage({
+        path: `/episodes/${_.kebabCase(edge.node.title)}`,
+        component: path.resolve('src/templates/episode.tsx'),
+        // additional data can be passed via context
+        context: {
+          id,
+        },
+      })
+    })
     // Tag pages:
     let tags = [];
     // Iterate through each post, putting all found tags into `tags`
