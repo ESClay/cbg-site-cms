@@ -6,18 +6,14 @@ import facebook from '../img/social/facebook.svg'
 import instagram from '../img/social/instagram.svg'
 import twitter from '../img/social/twitter.svg'
 import vimeo from '../img/social/vimeo.svg'
+import github from '../img/github-icon.svg'
+import reddit from '../img/social/reddit.svg'
+import twitch from '../img/social/twitch.svg'
 
 const Footer = class extends React.Component {
   render() {
     return (
       <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: '14em', height: '10em' }}
-          />
-        </div>
         <div className="content has-text-centered has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
             <div className="columns">
@@ -33,17 +29,7 @@ const Footer = class extends React.Component {
                       <Link className="navbar-item" to="/about">
                         About
                       </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
+                    </li>                   
                     <li>
                       <a
                         className="navbar-item"
@@ -62,26 +48,38 @@ const Footer = class extends React.Component {
                   <ul className="menu-list">
                     <li>
                       <Link className="navbar-item" to="/blog">
-                        Latest Stories
+                        Latest Blog Posts
                       </Link>
                     </li>
                     <li>
+                      <Link className="navbar-item" to="/episodes">
+                        Podcast Episodes
+                      </Link>
+                    </li>
+                    {/* <li>
                       <Link className="navbar-item" to="/contact">
                         Contact
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </section>
               </div>
               <div className="column is-4 social">
-                <a title="facebook" href="https://facebook.com">
+                <a title="Cast and Burn Gaming Subreddit" href="https://reddit.com/r/castandburngaming" target="_blank">
                   <img
-                    src={facebook}
-                    alt="Facebook"
+                    src={reddit}
+                    alt="reddit"
                     style={{ width: '1em', height: '1em' }}
                   />
                 </a>
-                <a title="twitter" href="https://twitter.com">
+                <a title="Twitch" href="https://twitch.tv/castandburngaming"  target="_blank">
+                  <img
+                    src={twitch}
+                    alt="twitch"
+                    style={{ width: '1em', height: '1em' }}
+                  />
+                </a>
+                <a title="Twitter" href="https://twitter.com/castandburn"  target="_blank">
                   <img
                     className="fas fa-lg"
                     src={twitter}
@@ -89,20 +87,15 @@ const Footer = class extends React.Component {
                     style={{ width: '1em', height: '1em' }}
                   />
                 </a>
-                <a title="instagram" href="https://instagram.com">
+                
+                
+                <a title="github" href="https://github.com/ESClay/cbg-site-cms"  target="_blank">
                   <img
-                    src={instagram}
-                    alt="Instagram"
+                    src={github}
+                    alt="github"
                     style={{ width: '1em', height: '1em' }}
                   />
-                </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
+                </a>                
               </div>
             </div>
           </div>

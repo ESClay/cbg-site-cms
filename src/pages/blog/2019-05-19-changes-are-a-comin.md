@@ -5,6 +5,9 @@ date: 2019-05-14T19:34:11.372Z
 description: '-----------------------------------------'
 featuredpost: true
 featuredimage: /img/download-1-.jpg
+tags:
+  - gaming
+  - podcast
 ---
 Hey guys!
 

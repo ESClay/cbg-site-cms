@@ -1,20 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
-
 import Layout from '../components/Layout'
-import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import LatestEpisodePlayer from '../components/LatestEpisodePlayer';
+
+export interface IndexPageProps {
+image:  {childImageSharp: any} | any;
+title: String;
+subheading: String;
+allAnchorEpisode: any
+}
 
 export const IndexPageTemplate = ({
   image,
   title,
-  heading,
   subheading,
-  mainpitch,
-  description,
-  intro,
-}) => (
+  allAnchorEpisode
+}:IndexPageProps) => (
   <div>
     <div
       className="full-width-image margin-top-0"
@@ -71,27 +74,16 @@ export const IndexPageTemplate = ({
             <div className="column is-10 is-offset-1">
               <div className="content">
                 <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
                 </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
+                <div className="column is-12">
+                  <h3 className="has-text-weight-semibold is-size-2">
+                      Latest podcast episode
+                  </h3>
+                  <LatestEpisodePlayer data={allAnchorEpisode}/>
                   <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
+                      <Link className="btn" to="/episodes">
+                        See all
+                      </Link>
                   </div>
                 </div>
                 <div className="column is-12">
@@ -114,31 +106,19 @@ export const IndexPageTemplate = ({
   </div>
 )
 
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
-}
 
-const IndexPage = ({ data }) => {
+
+const IndexPage = ({ data }: any) => {
   const { frontmatter } = data.markdownRemark
+  //const {allAnchorEpisode} = data;
 
   return (
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
+        title={frontmatter.title}       
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        allAnchorEpisode={data}
       />
     </Layout>
   )
@@ -166,28 +146,22 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
+        subheading        
+        
       }
     }
+    allAnchorEpisode(limit: 1) {
+            edges{
+                node{
+                    id
+                    title
+                    pubDate
+                    enclosure {
+                        url
+                        type
+                    }
+                }
+            }
+        }
   }
 `

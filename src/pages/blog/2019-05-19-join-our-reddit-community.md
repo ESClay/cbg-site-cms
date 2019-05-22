@@ -3,8 +3,11 @@ templateKey: blog-post
 title: Join our Reddit community!
 date: 2019-04-18T19:34:11.372Z
 description: '-----------------------------------------'
-featuredpost: true
+featuredpost: false
 featuredimage: /img/download-1-.jpg
+tags:
+  - gaming
+  - podcast
 ---
 Hey everyone, Nic here!
 

@@ -1,6 +1,9 @@
 ---
 templateKey: about-page
 title: About The Host
+tags:
+  - gaming
+  - host
 ---
 ### Hi! I’m Nic, the creator of Cast and Burn Gaming!
 
