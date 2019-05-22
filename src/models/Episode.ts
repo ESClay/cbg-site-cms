@@ -6,6 +6,6 @@ export default interface Episode {
     contentSnippet: string;
     content: string;
     link: string;
-    pubDate: Date;
+    isoDate: Date;
     enclosure: EpisodeData
 }

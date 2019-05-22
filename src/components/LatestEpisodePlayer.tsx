@@ -23,7 +23,7 @@ const LatestEpisodePlayer : React.FunctionComponent<any> = ({data}) => {
                     </Link>
                       <span> &bull; </span>
                       <span className="subtitle is-size-5 is-block">
-                        {edge.node.pubDate}
+                        {edge.node.isoDate}
                       </span>
                     </p>
                   </header>

@@ -36,7 +36,7 @@ const EpisodeRoll : React.FunctionComponent<Data> = ({allAnchorEpisode}) => {
                     </Link>
                       <span> &bull; </span>
                       <span className="subtitle is-size-5 is-block">
-                        {edge.node.pubDate}
+                        {edge.node.isoDate}
                       </span>
                     </p>
                   </header>
@@ -77,7 +77,7 @@ export default () => (
                                 content
                                 contentSnippet
                                 link
-                                pubDate
+                                isoDate(formatString: "MMMM DD, YYYY")
                                 enclosure{
                                     url
                                     length

@@ -43,7 +43,7 @@ export const episodeQuery = graphql`
             content
             title
             link
-            pubDate
+            isoDate
             enclosure{
                 url
                 length

@@ -155,7 +155,7 @@ export const pageQuery = graphql`
                 node{
                     id
                     title
-                    pubDate
+                    isoDate(formatString: "MMMM DD, YYYY")
                     enclosure {
                         url
                         type
