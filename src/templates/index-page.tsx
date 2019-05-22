@@ -3,17 +3,20 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import BlogRoll from '../components/BlogRoll'
+import LatestEpisodePlayer from '../components/LatestEpisodePlayer';
 
 export interface IndexPageProps {
 image:  {childImageSharp: any} | any;
 title: String;
 subheading: String;
+allAnchorEpisode: any
 }
 
 export const IndexPageTemplate = ({
   image,
   title,
   subheading,
+  allAnchorEpisode
 }:IndexPageProps) => (
   <div>
     <div
@@ -72,7 +75,17 @@ export const IndexPageTemplate = ({
               <div className="content">
                 <div className="content">
                 </div>
-             
+                <div className="column is-12">
+                  <h3 className="has-text-weight-semibold is-size-2">
+                      Latest podcast episode
+                  </h3>
+                  <LatestEpisodePlayer data={allAnchorEpisode}/>
+                  <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/episodes">
+                        See all
+                      </Link>
+                  </div>
+                </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest stories
@@ -97,6 +110,7 @@ export const IndexPageTemplate = ({
 
 const IndexPage = ({ data }: any) => {
   const { frontmatter } = data.markdownRemark
+  //const {allAnchorEpisode} = data;
 
   return (
     <Layout>
@@ -104,6 +118,7 @@ const IndexPage = ({ data }: any) => {
         image={frontmatter.image}
         title={frontmatter.title}       
         subheading={frontmatter.subheading}
+        allAnchorEpisode={data}
       />
     </Layout>
   )
@@ -135,5 +150,18 @@ export const pageQuery = graphql`
         
       }
     }
+    allAnchorEpisode(limit: 1) {
+            edges{
+                node{
+                    id
+                    title
+                    pubDate
+                    enclosure {
+                        url
+                        type
+                    }
+                }
+            }
+        }
   }
 `

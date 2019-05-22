@@ -40,13 +40,13 @@ const EpisodeRoll : React.FunctionComponent<Data> = ({allAnchorEpisode}) => {
                     </p>
                   </header>
                   <p>
-                      <audio controls src={edge.node.enclosure.url} itemType={edge.node.enclosure.type}/>
+                      {/* <audio controls src={edge.node.enclosure.url} itemType={edge.node.enclosure.type}/> */}
                       {/* <AudioPlayer 
                         src={edge.node.enclosure.url}
                       /> */}
                       <br/>
                       <br/>
-                    <span dangerouslySetInnerHTML={createMarkup(edge.node.content)}/>
+                    <span>{edge.node.contentSnippet}</span>
                     <br />
                     <br />
                     

@@ -4,6 +4,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 import Content, {HTMLContent} from "../components/Content";
+import AudioPlayer from "react-h5-audio-player"
 
 const EpisodePost : React.FunctionComponent<any> = ({data} : any) => {
     console.info(data);
@@ -24,7 +25,7 @@ const EpisodePost : React.FunctionComponent<any> = ({data} : any) => {
                 <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                     {title}
                 </h1>            
-                <p><audio controls src={enclosure!.url!} itemType={enclosure!.type!}/></p>            
+                <p><AudioPlayer controls src={enclosure!.url!} itemType={enclosure!.type!}/></p>            
                 <EpisodeContent content={content} />            
                 </div>
             </div>
