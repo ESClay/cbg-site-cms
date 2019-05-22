@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
-import Headshot from '../img/Headshot.png'
+import Headshot from '../img/Headshot.webp'
 
 
 class BlogRoll extends React.Component {

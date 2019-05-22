@@ -29,7 +29,7 @@ const LatestEpisodePlayer : React.FunctionComponent<any> = ({data}) => {
                   </header>
                   <div className="index-page-player-wrapper">
                       <span
-                      ><br/><AudioPlayer src={edge.node.enclosure!.url!} itemType={edge.node.enclosure!.type!}/></span>            
+                      ><br/><AudioPlayer src={edge.node.enclosure!.url!} itemType={edge.node.enclosure!.type!} preload="metadata"/></span>            
                     </div>
                 </div>
             </div>
