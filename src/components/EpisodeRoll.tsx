@@ -19,6 +19,7 @@ const EpisodeRoll : React.FunctionComponent<Data> = ({allAnchorEpisode}) => {
         <div className="columns is-multiline">
           {allAnchorEpisode.allAnchorEpisode.edges &&
             allAnchorEpisode.allAnchorEpisode.edges.map(edge => (
+              
 
               <div className="is-parent column is-6" key={edge.node.id}>
                 <article
@@ -45,11 +46,12 @@ const EpisodeRoll : React.FunctionComponent<Data> = ({allAnchorEpisode}) => {
                         src={edge.node.enclosure.url}
                       /> */}
                       <br/>
-                      <br/>
-                    <span>{edge.node.contentSnippet}</span>
+                    <span>{edge.node.contentSnippet.replace('&nbsp;', '\n').replace('&nbsp;', '\n').substring(0, 250) + "..."}</span>
                     <br />
                     <br />
-                    
+                    <Link className="button" to={'/episodes/' + _.kebabCase(edge.node.title)}>
+                    Keep Reading →
+                  </Link>
                   </p>
                 </article>
               </div>

@@ -27,8 +27,8 @@ const LatestEpisodePlayer : React.FunctionComponent<any> = ({data}) => {
                       </span>
                     </p>
                   </header>
-                  <div>
-                      <span className="is-block"
+                  <div className="index-page-player-wrapper">
+                      <span
                       ><br/><AudioPlayer src={edge.node.enclosure!.url!} itemType={edge.node.enclosure!.type!}/></span>            
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
+import Headshot from '../img/Headshot.png'
 
 
 class BlogRoll extends React.Component {
@@ -24,7 +25,7 @@ class BlogRoll extends React.Component {
                     <div className="featured-thumbnail">
                       <PreviewCompatibleImage
                         imageInfo={{
-                          image: "headshot",
+                          image: Headshot,
                           alt: `featured image thumbnail for post ${
                             post.title
                           }`,
