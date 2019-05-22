@@ -3,12 +3,17 @@ templateKey: blog-post
 title: Next Up!  Mass Effect 1!
 date: 2019-04-15T19:34:11.372Z
 description: '-----------------------------------------'
+<<<<<<< HEAD
 featuredpost: false
 featuredimage: /img/download-1-.jpg
 tags:
   - gaming
   - podcast
   - mass effect
+=======
+featuredpost: true
+featuredimage: /img/download-1-.jpg
+>>>>>>> c7098e079971d4c1ab51b35fd26799ef881034e5
 ---
 Hey all!  
 
