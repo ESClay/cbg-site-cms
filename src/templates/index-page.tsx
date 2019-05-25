@@ -5,15 +5,14 @@ import Layout from '../components/Layout'
 import BlogRoll from '../components/BlogRoll'
 import LatestEpisodePlayer from '../components/LatestEpisodePlayer';
 
+
 export interface IndexPageProps {
-image:  {childImageSharp: any} | any;
 title: String;
 subheading: String;
-allAnchorEpisode: any
+allAnchorEpisode?: any
 }
 
 export const IndexPageTemplate = ({
-  image,
   title,
   subheading,
   allAnchorEpisode
@@ -21,13 +20,11 @@ export const IndexPageTemplate = ({
   <div>
     <div
       className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
+      // style={{
+      //   backgroundImage: "url(../img/banner.webp)",
+      //   backgroundPosition: `top left`,
+      //   backgroundAttachment: `fixed`,
+      // }}
     >
       <div
         style={{
@@ -115,7 +112,7 @@ const IndexPage = ({ data }: any) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
+        
         title={frontmatter.title}       
         subheading={frontmatter.subheading}
         allAnchorEpisode={data}
@@ -138,14 +135,7 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        title        
         subheading        
         
       }

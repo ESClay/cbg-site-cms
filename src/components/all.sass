@@ -10,8 +10,13 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
+.navbar
+  position: sticky !important
+  top: 0px !important
+  z-index: 1 !important
 .navbar .navbar-menu
   box-shadow:none !important
+
 
 .content .taglist
   list-style: none
@@ -124,6 +129,7 @@ $menu-label-color: $white-ter
 
 .index-page-player-wrapper
   width: 94%
+  z-index: 0 !important
 // .react-h5-audio-player
 //   .flex
 //    width: 94% !important;
