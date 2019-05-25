@@ -5,8 +5,6 @@ import AudioPlayer from "react-h5-audio-player";
 
 
 const LatestEpisodePlayer : React.FunctionComponent<any> = ({data}) => {
-    console.info(data);
-    console.info(data.allAnchorEpisode);
     return (
         <div className="container content">
             {data.allAnchorEpisode.edges &&

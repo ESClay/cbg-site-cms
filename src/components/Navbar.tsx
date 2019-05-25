@@ -46,7 +46,20 @@ const Navbar = class extends React.Component<NavbarProps, NavbarState> {
         role="navigation"
         aria-label="main-navigation"
       >
+        
+        
         <div className="container">
+          <div className="navbar-brand">
+              <div
+                className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+                data-target="navMenu"
+                onClick={() => this.toggleHamburger()}
+              >
+                <span />
+                <span />
+                <span />
+              </div>
+          </div>
           <div
             id="navMenu"
             className={`navbar-menu ${this.state.navBarActiveClass}`}
