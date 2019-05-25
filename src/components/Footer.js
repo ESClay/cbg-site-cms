@@ -65,21 +65,21 @@ const Footer = class extends React.Component {
                 </section>
               </div>
               <div className="column is-4 social">
-                <a title="Cast and Burn Gaming Subreddit" href="https://reddit.com/r/castandburngaming" target="_blank">
+                <a title="Cast and Burn Gaming Subreddit" href="https://reddit.com/r/castandburngaming" target="_blank" rel="noopener noreferrer">
                   <img
                     src={reddit}
                     alt="reddit"
                     style={{ width: '1em', height: '1em' }}
                   />
                 </a>
-                <a title="Twitch" href="https://twitch.tv/castandburngaming"  target="_blank">
+                <a title="Twitch" href="https://twitch.tv/castandburngaming"  target="_blank" rel="noopener noreferrer">
                   <img
                     src={twitch}
                     alt="twitch"
                     style={{ width: '1em', height: '1em' }}
                   />
                 </a>
-                <a title="Twitter" href="https://twitter.com/castandburn"  target="_blank">
+                <a title="Twitter" href="https://twitter.com/castandburn"  target="_blank" rel="noopener noreferrer">
                   <img
                     className="fas fa-lg"
                     src={twitter}
@@ -89,7 +89,7 @@ const Footer = class extends React.Component {
                 </a>
                 
                 
-                <a title="github" href="https://github.com/ESClay/cbg-site-cms"  target="_blank">
+                <a title="github" href="https://github.com/ESClay/cbg-site-cms"  target="_blank" rel="noopener noreferrer">
                   <img
                     src={github}
                     alt="github"
