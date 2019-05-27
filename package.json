@@ -68,7 +68,7 @@
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "integration-test": "echo Not implemented yet",
     "generate": "graphql-codegen --config codegen.yml"
   },
