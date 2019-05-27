@@ -6,10 +6,6 @@ node_js:
 env: 
   - CODECOV_TOKEN="9ea40d3f-a85d-438d-85e6-8fa70ec529d9"
 
-branches:
-  except:
-    - experimental
-
 install:
   - npm uninstall typescript --no-save
   - npm uninstall tslint --no-save
