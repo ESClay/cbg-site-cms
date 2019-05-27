@@ -37,7 +37,6 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then(result => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()));
       return Promise.reject(result.errors);
     }
 
@@ -45,7 +44,6 @@ exports.createPages = ({ actions, graphql }) => {
 
     posts.forEach(edge => {
       const { id } = edge.node;
-      console.log(edge);
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,

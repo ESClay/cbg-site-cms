@@ -1,0 +1,18 @@
+language: node_js
+node_js: 
+  - "12.1.0"
+
+env: 
+  - CODECOV_TOKEN="9ea40d3f-a85d-438d-85e6-8fa70ec529d9"
+
+branches:
+  except:
+    - experimental
+
+jobs:
+  include:
+    - stage: "Tests"
+      name: "Unit Tests"
+      script: "npm run test"
+    - script: "npm run integration-test"
+      name: "Integration Tests"
