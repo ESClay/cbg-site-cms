@@ -17,7 +17,7 @@ const TemplateWrapper : React.FunctionComponent = ({ children }) => {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/img/apple-touch-icon.png"
+          href="/img/headshot.png"
         />
         <link
           rel="icon"
@@ -34,15 +34,15 @@ const TemplateWrapper : React.FunctionComponent = ({ children }) => {
 
         <link
           rel="mask-icon"
-          href="/img/safari-pinned-tab.svg"
+          href="/img/headshotproper.svg"
           color="#ff4400"
         />
         <meta name="theme-color" content="#fff" />
 
-        <meta property="og:type" content="business.business" />
+        <meta property="og:type" content="personal.podcast" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
-        <meta property="og:image" content="/img/og-image.jpg" />
+        <meta property="og:image" content="/img/headshot.png" />
       </Helmet>
       <Navbar />
       <div>{children}</div>
