@@ -16,3 +16,6 @@ jobs:
       script: "npm run test"
     - script: "npm run integration-test"
       name: "Integration Tests"
+    - stage: "Build"
+      name: "Build site"
+      script: "npm run build"
