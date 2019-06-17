@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import {Button, Menu, MenuItem} from "@material-ui/core";
+//const cnbtext = require('../img/social/cnbtext.svg') as string;
 
 export interface NavbarProps {
 
@@ -50,6 +51,9 @@ const Navbar = class extends React.Component<NavbarProps, NavbarState> {
         
         <div className="container">
           <div className="navbar-brand">
+          {/* <Link to="/" className="navbar-item" title="Logo">
+              <img src={cnbtext} alt="Cast and Burn Gaming" style={{ width: 'px' }} />
+            </Link> */}
               <div
                 className={`navbar-burger burger ${this.state.navBarActiveClass}`}
                 data-target="navMenu"

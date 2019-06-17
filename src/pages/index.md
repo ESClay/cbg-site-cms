@@ -1,7 +1,6 @@
 ---
 templateKey: index-page
-title: Cast and Burn Gaming
-subheading: An RPG Videogame Podcast
+image: /img/cnbgaming.png
 tags:
   - gaming
   - podcast

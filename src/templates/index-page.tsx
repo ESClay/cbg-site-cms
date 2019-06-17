@@ -1,68 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql,  } from 'gatsby'
 import Layout from '../components/Layout'
 import BlogRoll from '../components/BlogRoll'
 import LatestEpisodePlayer from '../components/LatestEpisodePlayer';
 
+const logo = require("../img/castnburnlogo.svg");
+// import GatsbyImageSharpFluid from "gatsby-image";
+// const backgroundLogo : GatsbyImageSharpFluid  = require("../img/castnburnlogo.svg");
+
+
 
 export interface IndexPageProps {
-title: String;
-subheading: String;
+image: {childImageSharp: any} | any;
 allAnchorEpisode?: any
 }
 
 export const IndexPageTemplate = ({
-  title,
-  subheading,
   allAnchorEpisode
 }:IndexPageProps) => (
   <div>
     <div
       className="full-width-image margin-top-0"
       // style={{
-      //   backgroundImage: "url(../img/banner.webp)",
+      //   backgroundImage: `url(${
+      //     !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+      //   })`,
       //   backgroundPosition: `top left`,
       //   backgroundAttachment: `fixed`,
       // }}
     >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
+      <img src={logo} className="full-width-image"/>
+      {/* <PreviewCompatibleBackgroundImage
+        imageInfo={{
+          image: "../img/castnburnlogo.svg",
+          alt: "Background image for Cast and Burn Gaming",
         }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
+      />      */}
     </div>
     <section className="section section--gradient">
       <div className="container">
@@ -112,9 +86,7 @@ const IndexPage = ({ data }: any) => {
   return (
     <Layout>
       <IndexPageTemplate
-        
-        title={frontmatter.title}       
-        subheading={frontmatter.subheading}
+        image={frontmatter.image}
         allAnchorEpisode={data}
       />
     </Layout>
@@ -128,15 +100,28 @@ IndexPage.propTypes = {
     }),
   }),
 }
+// export function convertImageToFluid(image : any) {
+//   const newImage : GatsbyImageSharpFluid = {
+//       fluid: {
 
+//       }
+
+//     }
+//   }
+// }
 export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title        
-        subheading        
+        image {
+          childImageSharp {
+            fluid(maxWidth: 972, maxHeight: 648, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }                
         
       }
     }

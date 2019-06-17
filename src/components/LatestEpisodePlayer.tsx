@@ -10,7 +10,7 @@ const LatestEpisodePlayer : React.FunctionComponent<any> = ({data}) => {
             {data.allAnchorEpisode.edges &&
             data.allAnchorEpisode.edges.map((edge:any) => (
             <div className="columns" key={edge.node.id}>
-                <div className="column is-10">
+                <div className="column is-12">
                 <header>                    
                     <p className="post-meta">
                     <Link
