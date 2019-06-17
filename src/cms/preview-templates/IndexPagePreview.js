@@ -1,27 +1,24 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { IndexPageTemplate } from '../../templates/index-page'
+/* eslint-disable react/jsx-filename-extension */
+import React from "react";
+import PropTypes from "prop-types";
+import { IndexPageTemplate } from "../../templates/index-page";
 
 const IndexPagePreview = ({ entry, getAsset }) => {
-  const data = entry.getIn(['data']).toJS()
+  const data = entry.getIn(["data"]).toJS();
 
   if (data) {
-    return (
-      <IndexPageTemplate
-        title={data.title}
-        subheading={data.subheading}
-      />
-    )
-  } else {
-    return <div>Loading...</div>
+    return <IndexPageTemplate />;
   }
-}
+  return <div>Loading...</div>;
+};
 
 IndexPagePreview.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   entry: PropTypes.shape({
-    getIn: PropTypes.func,
+    getIn: PropTypes.func
   }),
-  getAsset: PropTypes.func,
-}
+  // eslint-disable-next-line react/require-default-props
+  getAsset: PropTypes.func
+};
 
-export default IndexPagePreview
+export default IndexPagePreview;
