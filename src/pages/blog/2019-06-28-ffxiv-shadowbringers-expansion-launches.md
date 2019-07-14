@@ -3,7 +3,7 @@ templateKey: blog-post
 title: FFXIV Shadowbringers Expansion Launches!
 date: 2019-06-28T14:49:23.616Z
 description: '-----------------------------------------------------'
-featuredpost: true
+featuredpost: false
 featuredimage: /img/headshot.png
 ---
 Hey all!
