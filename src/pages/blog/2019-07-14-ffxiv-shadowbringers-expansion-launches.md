@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: FFXIV Shadowbringers Expansion Launches!
+title: FFXIV Shadowbringers...Has taken over my life
 date: 2019-06-28T14:49:23.616Z
 description: '-----------------------------------------------------'
 featuredpost: true
