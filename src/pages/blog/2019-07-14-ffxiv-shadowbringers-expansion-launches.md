@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: FFXIV Shadowbringers...Has taken over my life
-date: 2019-07-14T14:49:23.616Z
+date: 2019-07-14T13:30:23.616Z
 description: '-----------------------------------------------------'
 featuredpost: true
 featuredimage: /img/headshot.png
