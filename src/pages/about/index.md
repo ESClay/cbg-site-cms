@@ -13,7 +13,7 @@ I had initially started this journey trying to do Let’s Plays on YouTube, howe
 
 ### 
 
-You see, I have a full time job as a software developer, I’m a husband, and also a dad to a pretty amazing little boy. Podcasting however, fits right into my life!
+You see, I have a full time job as a software developer and I'm a single dad to a pretty amazing little boy. Podcasting however, fits right into my life!
 
 ### 
 
