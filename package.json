@@ -34,7 +34,7 @@
     "gatsby-source-anchor": "^0.5.1",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-source-rss-feed": "^1.1.1",
-    "gatsby-transformer-remark": "^2.3.12",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.1.19",
     "immutable": "^3.8.2",
     "lodash": "^4.17.5",
